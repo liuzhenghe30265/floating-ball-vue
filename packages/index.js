@@ -1,7 +1,7 @@
-import Demo from './Demo/index'
+import FloatingBallVue from './FloatingBallVue/index'
 
 const components = [
-  Demo
+  FloatingBallVue
 ]
 
 const install = function (Vue) {
@@ -13,5 +13,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 export default {
   install,
-  Demo
+  FloatingBallVue
 }

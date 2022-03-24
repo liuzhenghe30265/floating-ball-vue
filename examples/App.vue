@@ -1,8 +1,8 @@
 <template>
   <div
     id="app">
-    <Demo>
-    </Demo>
+    <FloatingBallVue>
+    </FloatingBallVue>
   </div>
 </template>
 

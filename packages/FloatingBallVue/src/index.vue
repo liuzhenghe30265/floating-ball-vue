@@ -1,6 +1,6 @@
 <template>
   <div>
-    Demo
+    FloatingBallVue
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import Emitter from './emitter'
 
 export default {
-  name: 'Demo',
+  name: 'FloatingBallVue',
 
   mixins: [Emitter],
 
