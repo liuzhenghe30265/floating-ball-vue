@@ -1,9 +1,9 @@
 {
   "name": "floating-ball-vue",
-  "version": "1.0.6",
+  "version": "1.0.1",
   "private": false,
   "main": "floating-ball-vue/package",
-  "description": "带拖动功能的时间轴",
+  "description": "悬浮工具球（仿 iphone 辅助触控） ",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

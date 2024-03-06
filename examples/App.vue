@@ -1,7 +1,6 @@
 <template>
-  <div
-    id="app">
-    <FloatingBallVue>
+  <div id="app">
+    <FloatingBallVue class="floating_ball">
     </FloatingBallVue>
   </div>
 </template>
@@ -10,14 +9,11 @@
 export default {
   name: 'App',
   components: {},
-  data () {
-    return {
-    }
+  data() {
+    return {}
   },
-  mounted () { },
-  computed: {
-
-  },
+  mounted() {},
+  computed: {},
   methods: {}
 }
 </script>
@@ -26,5 +22,9 @@ export default {
 #app {
   padding: 0 50px;
   margin: 100px auto;
+  .floating_ball {
+    right: 200px;
+    top: 200px;
+  }
 }
 </style>
