@@ -8,6 +8,9 @@ module.exports = {
       filename: 'index.html'
     }
   },
+  css: {
+    extract: false // ^ 样式文件不单独放 .css 文件中，直接打包在 js 中，在项目中 import 引用时可以不用再添加样式文件
+  },
   chainWebpack: config => {
     config.resolve.alias
       .set('@', path.resolve('examples'))
