@@ -2,7 +2,7 @@
 
 floating-ball-vue
 
-![]()
+![](https://p.ipic.vip/48hdp4.gif)
 
 [Demo](https://liuzhenghe30265.github.io/floating-ball-vue/)
 
