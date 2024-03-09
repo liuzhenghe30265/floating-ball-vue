@@ -1,8 +1,11 @@
 {
   "name": "floating-ball-vue",
-  "version": "1.0.1",
+  "version": "1.0.9",
   "private": false,
-  "main": "floating-ball-vue/package",
+  "main": "lib/floating-ball-vue.common.js",
+  "files": [
+    "lib"
+  ],
   "description": "悬浮工具球（仿 iphone 辅助触控） ",
   "scripts": {
     "serve": "vue-cli-service serve",
