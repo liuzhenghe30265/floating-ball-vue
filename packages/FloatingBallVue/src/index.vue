@@ -39,9 +39,35 @@
 </template>
 
 <script>
-import './utils/vDirective'
+// 创建一个全局的点击事件处理函数
+const handleClickOutside = (event, el, binding) => {
+  // 检查点击的元素是否在绑定的元素内部
+  if (!(el === event.target || el.contains(event.target))) {
+    // 如果点击的元素不在绑定的元素内部，则触发绑定的回调函数
+    binding.value()
+  }
+}
 export default {
   name: 'FloatingBallVue',
+
+  directives: {
+    clickOutside: {
+      bind: function (el, binding) {
+        // 创建一个点击事件处理函数，并将它保存在元素的属性中
+        const handleClick = event => handleClickOutside(event, el, binding)
+        el.__vueClickOutside__ = handleClick
+
+        // 在 document 上监听点击事件
+        document.addEventListener('click', handleClick)
+      },
+      // 指令的解绑函数，在元素从 DOM 中移除时调用
+      unbind(el) {
+        // 移除之前保存在元素属性中的点击事件处理函数
+        document.removeEventListener('click', el.__vueClickOutside__)
+        delete el.__vueClickOutside__
+      }
+    }
+  },
 
   components: {},
 
@@ -202,7 +228,7 @@ export default {
     height: 80px;
     transition: all 0.2s;
     border-radius: 12px;
-    background-color: rgba($color: #333333, $alpha: 0.2);
+    background-color: rgba($color: #333333, $alpha: 0.4);
     .fbi_ring {
       position: absolute;
       top: 50%;
