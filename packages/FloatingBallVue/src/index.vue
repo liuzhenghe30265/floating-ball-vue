@@ -170,6 +170,35 @@ export default {
           this.dragging = false
           if (!this.isClick) {
             this.setPosition()
+
+            // ^ 如果移出了屏幕以外，自动定位回屏幕内
+            const FloatingBal = this.$refs.FloatingBal
+            const offsetTop =
+              FloatingBal.offsetTop - FloatingBal.offsetHeight / 2
+            const offsetTop2 =
+              FloatingBal.offsetTop + FloatingBal.offsetHeight / 2
+            const offsetLeft =
+              FloatingBal.offsetLeft - FloatingBal.offsetWidth / 2
+            const offsetLeft2 =
+              FloatingBal.offsetLeft + FloatingBal.offsetWidth / 2
+            if (offsetTop < 0) {
+              // ^ 上
+              this.newPosition.top = FloatingBal.offsetWidth / 2
+            }
+            if (offsetTop2 > window.innerHeight) {
+              // ^ 下
+              this.newPosition.top =
+                window.innerHeight - FloatingBal.offsetHeight / 2
+            }
+            if (offsetLeft < 0) {
+              // ^ 左
+              this.newPosition.left = FloatingBal.offsetHeight / 2
+            }
+            if (offsetLeft2 > window.innerWidth) {
+              // ^ 右
+              this.newPosition.left =
+                window.innerWidth - FloatingBal.offsetWidth / 2
+            }
           }
         }, 0)
         window.removeEventListener('mousemove', this.onDragging)
@@ -219,8 +248,7 @@ export default {
 .floating_ball {
   position: absolute;
   z-index: 9;
-  top: 160px;
-  right: 80px;
+  inset: 160px 80px auto auto;
   cursor: pointer;
   transform: translateX(-50%) translateY(-50%);
   .floating_ball_inner {
